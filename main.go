@@ -83,8 +83,8 @@ func startup(r *http.ServeMux, cmdLine []string) (http.Handler, bool) {
 	r.Handle(healthLivelinessPattern, http.HandlerFunc(healthLivelinessHandler))
 	r.Handle(healthReadinessPattern, http.HandlerFunc(healthReadinessHandler))
 
-	// Add operations handler
-	//r.Handle(module.ResiliencyPath, http.HandlerFunc(http2.Exchange))
+	// Add search handler
+	r.Handle("/search", http.HandlerFunc(http2.Exchange))
 	return r, true
 }
 
